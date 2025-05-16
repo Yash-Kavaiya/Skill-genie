@@ -1,0 +1,342 @@
+/* Accenture Theme for Dialogflow Chat */
+
+/* Custom Accenture gradients */
+.sidebar-gradient {
+    background: linear-gradient(135deg, #A100FF 0%, #7700F5 60%, #5900C9 100%);
+}
+
+.button-gradient {
+    background: linear-gradient(135deg, #A100FF 0%, #7700C9 100%);
+    transition: opacity 0.3s ease;
+}
+
+.button-gradient:hover {
+    opacity: 0.9;
+}
+
+.avatar-gradient {
+    background: linear-gradient(135deg, #A100FF 0%, #00D8C9 100%);
+}
+
+/* Base animations and transitions */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes typing {
+    0%, 100% { content: '.'; }
+    33% { content: '..'; }
+    66% { content: '...'; }
+}
+
+/* Markdown styling for chat messages */
+.prose {
+    color: #333333;
+    max-width: 65ch;
+}
+
+.prose p {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+}
+
+.prose p:first-child {
+    margin-top: 0;
+}
+
+.prose p:last-child {
+    margin-bottom: 0;
+}
+
+.prose strong {
+    font-weight: 600;
+    color: #000;
+}
+
+.prose a {
+    color: #A100FF;
+    text-decoration: underline;
+}
+
+.prose code {
+    color: #333;
+    background-color: #f4f4f4;
+    padding: 0.2em 0.4em;
+    border-radius: 0.25em;
+    font-size: 0.9em;
+}
+
+.prose pre {
+    background-color: #f4f4f4;
+    border-radius: 0.5em;
+    padding: 1em;
+    overflow-x: auto;
+    margin: 1.5em 0;
+}
+
+.prose pre code {
+    background-color: transparent;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+.prose ul {
+    list-style-type: disc;
+    padding-left: 1.5em;
+    margin: 1.25em 0;
+}
+
+.prose ol {
+    list-style-type: decimal;
+    padding-left: 1.5em;
+    margin: 1.25em 0;
+}
+
+.prose blockquote {
+    border-left: 3px solid #A100FF;
+    padding-left: 1em;
+    margin: 1.5em 0;
+    color: #666;
+}
+
+/* Message styling */
+.user-message {
+    animation: slideInUp 0.3s ease-out;
+}
+
+.bot-message {
+    animation: slideInUp 0.3s ease-out;
+    border-radius: 0.5rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 1rem;
+    width: calc(100% + 2rem);
+}
+
+/* Every other bot message with slight background */
+.bot-message:nth-child(even) {
+    background-color: #F8F8F8;
+}
+
+/* Chat history items */
+.chat-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.chat-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.chat-item.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #A100FF;
+    border-radius: 0.25rem;
+    opacity: 0.7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8400cc;
+}
+
+/* Voice modal and recording */
+.waveform-path {
+    stroke: #A100FF;
+    stroke-width: 2px;
+    fill: none;
+    transition: d 0.2s ease;
+}
+
+.recording-animation {
+    animation: pulse 1.5s infinite;
+}
+
+#transcription-result {
+    min-height: 60px;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+/* Auto-resize textarea */
+textarea {
+    overflow: hidden;
+    resize: none;
+    min-height: 24px;
+    max-height: 200px;
+    line-height: 1.5;
+}
+
+/* Loading animation for bot typing */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+}
+
+.typing-indicator span {
+    width: 8px;
+    height: 8px;
+    margin-right: 4px;
+    border-radius: 50%;
+    background-color: #A100FF;
+    display: inline-block;
+    animation: typing-dot 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing-dot {
+    0%, 80%, 100% { transform: scale(0.8); opacity: 0.6; }
+    40% { transform: scale(1); opacity: 1; }
+}
+
+/* Code highlighting */
+.hljs {
+    background: #f8f8f8;
+    color: #333;
+    border-radius: 0.5rem;
+}
+
+.hljs-comment,
+.hljs-quote {
+    color: #7f7f7f;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in {
+    color: #A100FF;
+}
+
+.hljs-string,
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable {
+    color: #00D8C9;
+}
+
+.hljs-number,
+.hljs-literal {
+    color: #7700C9;
+}
+
+.hljs-type,
+.hljs-title,
+.hljs-class,
+.hljs-tag {
+    color: #5900C9;
+}
+
+/* Attachment preview */
+#attachment-preview {
+    background-color: #f8f8f8;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.375rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    #sidebar {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        bottom: 0;
+        z-index: 50;
+        transition: left 0.3s ease;
+    }
+    
+    #sidebar.open {
+        left: 0;
+    }
+    
+    .overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 40;
+    }
+    
+    .overlay.active {
+        display: block;
+    }
+}
+
+/* Additional Accenture-specific styling */
+.accenture-shadow {
+    box-shadow: 0 4px 20px rgba(161, 0, 255, 0.15);
+}
+
+.user-avatar {
+    background: linear-gradient(135deg, #5900C9 0%, #2E0085 100%);
+}
+
+/* Accenture-style message border */
+.message-border-left {
+    border-left: 4px solid #A100FF;
+}
+
+.message-border-right {
+    border-right: 4px solid #A100FF;
+}
+
+/* Accenture brand elements */
+.accenture-angle {
+    position: relative;
+}
+
+.accenture-angle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+    border-color: #A100FF transparent transparent transparent;
+}
+
+/* Add some subtle patterns */
+.subtle-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23a100ff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
